@@ -1,0 +1,15 @@
+{{ $description := default "Ein Ort für Inspiration, Achtsamkeit und natürliche Wege zu einem ausgeglichenen Leben." .Params.description }}
+{{ $aboutUrl := default "/about/" .Params.aboutUrl }}
+{{ $buttonText := default "Mehr über mich" .Params.buttonText }}
+{{ $title := default "Über Naturalis Balance" .Params.title }}
+
+<section class="widget about-widget">
+    <div class="widget-about-inner">
+        <div class="widget-about-header">
+            <span class="widget-about-emoji">🌿</span>
+            <h2 class="widget-about-title">{{ $title }}</h2>
+        </div>
+        <p class="widget-about-text">{{ $description }}</p>
+        <a href="{{ $aboutUrl }}" class="btn-mehr-ueber-mich">{{ $buttonText }}</a>
+    </div>
+</section>

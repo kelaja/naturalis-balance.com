@@ -1,0 +1,380 @@
+// ======================================================
+// FONTS
+// ======================================================
+:root {
+    --base-font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --article-font-family: "Lora", Georgia, serif;
+}
+
+// ======================================================
+// COLOR OVERRIDES
+// ======================================================
+:root {
+    --body-background: #f5f3ee;
+    --accent-color: #4a6b4a;
+    --accent-color-darker: #3d5a40;
+
+    // Taller hero images
+    --article-image-height: 300px;
+
+    @include respond(md) {
+        --article-image-height: 330px;
+    }
+
+    @include respond(xl) {
+        --article-image-height: 360px;
+    }
+}
+
+// ======================================================
+// SITE HEADER (TOP NAV)
+// ======================================================
+.site-header {
+    background: var(--card-background);
+    border-bottom: 1px solid var(--card-separator-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 30px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+}
+
+.site-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none !important;
+    color: inherit;
+    flex-shrink: 0;
+
+    &:hover {
+        color: inherit;
+    }
+
+    .leaf-icon {
+        color: #5a7f5a;
+        flex-shrink: 0;
+    }
+}
+
+.site-name-text {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(120deg, #5e8f5e 0%, #4a8fa8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    font-family: "Lato", sans-serif;
+}
+
+// Override Stack theme #main-menu styles for header context
+nav#main-menu {
+    // Mobile: dropdown from header
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--card-background) !important;
+    box-shadow: var(--shadow-l2) !important;
+    border-top: 1px solid var(--card-separator-color);
+    margin: 0 !important;
+    padding: 20px 30px !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    z-index: 99;
+
+    @include respond(md) {
+        position: static !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        gap: 24px !important;
+        flex-grow: 0 !important;
+        width: auto !important;
+        overflow: visible !important;
+    }
+}
+
+.nav-item {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--body-text-color) !important;
+    text-decoration: none !important;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+    padding: 4px 0;
+    height: auto !important;
+    display: inline !important;
+    gap: 0 !important;
+
+    &:hover {
+        color: #4a6b4a !important;
+    }
+
+    &.active {
+        color: #3d5a40 !important;
+        font-weight: 600;
+    }
+}
+
+// Dark mode toggle in header
+.site-header #dark-mode-toggle {
+    margin-top: 0 !important;
+    gap: 6px;
+    cursor: pointer;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+// Hamburger: override Stack's absolute positioning
+#toggle-menu {
+    position: static !important;
+
+    @include respond(md) {
+        display: none !important;
+    }
+}
+
+// ======================================================
+// LAYOUT: remove left sidebar, adjust main container
+// ======================================================
+.left-sidebar {
+    display: none !important;
+}
+
+.main-container {
+    padding-top: var(--section-separation) !important;
+
+    @include respond(md) {
+        padding-top: var(--section-separation) !important;
+    }
+}
+
+main.main {
+    padding-top: 0 !important;
+
+    @include respond(md) {
+        padding-top: 0 !important;
+    }
+}
+
+// Right sidebar: adjust top padding to align with content
+.right-sidebar {
+    @include respond(lg) {
+        padding-top: 0 !important;
+    }
+}
+
+// ======================================================
+// ARTICLE LIST
+// ======================================================
+
+// Category: clean uppercase style
+.article-category a {
+    background-color: transparent !important;
+    color: #5a7a5a !important;
+    padding: 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    &:hover {
+        color: #3d5a40 !important;
+    }
+}
+
+// Title font
+.article-title {
+    font-family: "Lora", Georgia, serif;
+    font-size: 2.4rem !important;
+    line-height: 1.3;
+
+    @include respond(xl) {
+        font-size: 2.8rem !important;
+    }
+}
+
+// "Weiterlesen" button
+.article-footer-list {
+    padding: 0 var(--card-padding) var(--card-padding);
+}
+
+.weiterlesen-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 22px;
+    background: transparent;
+    border: 1px solid #c8d4c8;
+    border-radius: 6px;
+    color: var(--body-text-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: all 0.2s;
+
+    &:hover {
+        background: #f0f5f0;
+        border-color: #4a6b4a;
+        color: #3d5a40 !important;
+    }
+}
+
+// ======================================================
+// RIGHT SIDEBAR WIDGETS
+// ======================================================
+
+// About widget
+.about-widget {
+    @include card-style;
+}
+
+.widget-about-inner {
+    padding: var(--small-card-padding);
+}
+
+.widget-about-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+
+    .widget-about-emoji {
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    .widget-about-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0;
+        color: var(--card-text-color-main);
+        font-family: "Lora", Georgia, serif;
+    }
+}
+
+.widget-about-text {
+    font-size: 1.5rem;
+    color: var(--card-text-color-secondary);
+    line-height: 1.65;
+    margin: 0 0 18px;
+}
+
+.btn-mehr-ueber-mich {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 22px;
+    background: #3d5a40;
+    color: #fff !important;
+    border-radius: 6px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: background 0.2s;
+    letter-spacing: 0.01em;
+
+    &:hover {
+        background: #2f4730;
+        color: #fff !important;
+    }
+}
+
+// Recent posts widget
+.recent-posts-widget {
+    @include card-style;
+    padding: var(--small-card-padding);
+
+    .section-title {
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--card-separator-color);
+        font-size: 1.6rem;
+    }
+}
+
+.recent-post-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 10px 0;
+
+    & + .recent-post-item {
+        border-top: 1px solid var(--card-separator-color);
+    }
+}
+
+.recent-post-thumb {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 6px;
+    display: block;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.recent-post-thumb--placeholder {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    background: #e0e8e0;
+}
+
+.recent-post-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.recent-post-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--card-text-color-main) !important;
+    text-decoration: none !important;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    &:hover {
+        color: #4a6b4a !important;
+    }
+}
+
+.recent-post-date {
+    font-size: 1.2rem;
+    color: var(--card-text-color-secondary);
+    display: block;
+}

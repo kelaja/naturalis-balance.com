@@ -1,0 +1,28 @@
+{{ $limit := default 3 .Params.limit }}
+{{ $title := default "Neueste Beiträge" .Params.title }}
+{{ $pages := where .Context.Site.RegularPages "Section" "post" }}
+{{ $pages = $pages | first $limit }}
+
+{{ if $pages }}
+<section class="widget recent-posts-widget">
+    <h2 class="section-title">{{ $title }}</h2>
+    {{ range $pages }}
+    {{ $image := partial "helper/image" (dict "Image" .Params.image "Resources" .Resources "Context" .) }}
+    <div class="recent-post-item">
+        {{ if $image }}
+        <a href="{{ .RelPermalink }}" class="recent-post-thumb" aria-hidden="true" tabindex="-1">
+            <img src="{{ $image.Permalink }}" alt="" loading="lazy" width="60" height="60">
+        </a>
+        {{ else }}
+        <div class="recent-post-thumb recent-post-thumb--placeholder"></div>
+        {{ end }}
+        <div class="recent-post-info">
+            <a href="{{ .RelPermalink }}" class="recent-post-title">{{ .Title }}</a>
+            <time class="recent-post-date" datetime='{{ .Date.Format "2006-01-02" }}'>
+                {{- .Date | time.Format "02. Jan 2006" -}}
+            </time>
+        </div>
+    </div>
+    {{ end }}
+</section>
+{{ end }}

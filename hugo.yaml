@@ -43,33 +43,41 @@ params:
 
   widgets:
     homepage:
-      - type: search
-      - type: archives
+      - type: about
         params:
-          limit: 5
-      - type: categories
+          title: "Über Naturalis Balance"
+          description: "Ein Ort für Inspiration, Achtsamkeit und natürliche Wege zu einem ausgeglichenen Leben."
+          aboutUrl: "/about/"
+          buttonText: "Mehr über mich"
+      - type: recent-posts
         params:
-          limit: 10
-      - type: tag-cloud
-        params:
-          limit: 10
+          limit: 3
+          title: "Neueste Beiträge"
     page:
       - type: toc
 
 menu:
   main:
-    - identifier: home
-      name: Home
+    - identifier: blog
+      name: Blog
       url: /
       weight: 1
     - identifier: about
       name: Über mich
       url: /about/
       weight: 2
-    - identifier: archives
-      name: Archiv
-      url: /archives/
+    - identifier: natur
+      name: Natur
+      url: /categories/natur-balance/
       weight: 3
+    - identifier: balance
+      name: Balance
+      url: /categories/natur-balance/
+      weight: 4
+    - identifier: kontakt
+      name: Kontakt
+      url: /about/
+      weight: 5
 
 outputs:
   home:

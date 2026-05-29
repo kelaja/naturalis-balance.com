@@ -9,7 +9,17 @@
       "Bash(dpkg --print-architecture)",
       "Bash(git init *)",
       "Bash(git submodule *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git commit *)",
+      "Read(//home/k/.ssh/**)",
+      "Bash(git remote *)",
+      "Bash(mkdir -p /home/k/myProjects/naturalis-balance.com/layouts/_partials/widget /home/k/myProjects/naturalis-balance.com/layouts/_partials/head /home/k/myProjects/naturalis-balance.com/layouts/_partials/article-list /home/k/myProjects/naturalis-balance.com/content/post/im-fluss-der-natur /home/k/myProjects/naturalis-balance.com/assets/scss)",
+      "Bash(hugo --minify)",
+      "Bash(hugo server *)",
+      "Bash(curl -s http://localhost:1315/)",
+      "Bash(curl -s 'http://localhost:1315/scss/style.min.50ccb2dcaf47bec851c6410d36fc8ee46dd96a13054942465b9d11efef16fc05.css')",
+      "Bash(curl -s 'http://localhost:1315/post/im-fluss-der-natur/')"
     ]
   }
 }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale }}" dir="{{ default `ltr` .Language.Direction }}">
+    <head>
+        {{- partial "head/head.html" . -}}
+        {{- block "head" . -}}{{ end }}
+    </head>
+    <body class="{{ block `body-class` . }}{{ end }}">
+        {{- partial "head/colorScheme" . -}}
+
+        <header class="site-header">
+            <div class="header-inner">
+                <a href="{{ .Site.Home.RelPermalink }}" class="site-brand">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="leaf-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                    </svg>
+                    <span class="site-name-text">{{ .Site.Title }}</span>
+                </a>
+
+                <nav id="main-menu" class="header-nav">
+                    {{ $currentPage := . }}
+                    {{ range .Site.Menus.main }}
+                    {{- $active := or (eq $currentPage.RelPermalink .URL) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .)) -}}
+                    <a href="{{ .URL }}" class="nav-item{{ if $active }} active{{ end }}">{{ .Name }}</a>
+                    {{ end }}
+                    {{ if .Site.Params.colorScheme.toggle }}
+                    <span id="dark-mode-toggle" class="dark-mode-toggle">
+                        {{ partial "helper/icon" "toggle-left" }}
+                        {{ partial "helper/icon" "toggle-right" }}
+                    </span>
+                    {{ end }}
+                </nav>
+
+                <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="{{ T `toggleMenu` }}">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </header>
+
+        {{/* The container is wider when there's any activated widget */}}
+        {{- $hasWidget := false -}}
+        {{- range .Site.Params.widgets -}}
+            {{- if gt (len .) 0 -}}
+                {{- $hasWidget = true -}}
+            {{- end -}}
+        {{- end -}}
+        <div class="container main-container flex on-phone--column {{ if $hasWidget }}extended{{ else }}compact{{ end }}">
+            {{- block "right-sidebar" . -}}{{ end }}
+            <main class="main full-width">
+                {{- block "main" . }}{{- end }}
+            </main>
+        </div>
+
+        {{ partial "footer/include.html" . }}
+    </body>
+</html>

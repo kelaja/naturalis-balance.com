@@ -1,0 +1,7 @@
+{{ $image := partial "helper/image" (dict "Image" .Params.image "Resources" .Resources "Context" .) }}
+<article class="{{ if $image }}has-image{{ end }}">
+    {{ partial "article/components/header" (dict "Page" . "IsList" true) }}
+    <div class="article-footer-list">
+        <a href="{{ .RelPermalink }}" class="weiterlesen-btn">Weiterlesen →</a>
+    </div>
+</article>
