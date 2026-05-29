@@ -1,6 +1,6 @@
 ---
 title: "Im Fluss der Natur – Balance finden im Alltag"
-date: 2024-05-25
+date: 2026-05-29
 draft: false
 categories:
     - Natur & Balance
