@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(hugo version *)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(apt-get --version)",
+      "Bash(snap version *)",
+      "Bash(dpkg --print-architecture)",
+      "Bash(git init *)",
+      "Bash(git submodule *)",
+      "Bash(git add *)"
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+baseURL: https://naturalis-balance.com/
+locale: de-DE
+title: Naturalis Balance
+theme: stack
+
+pagination:
+  pagerSize: 10
+
+params:
+  mainSections:
+    - post
+  rssFullContent: true
+
+  footer:
+    since: 2026
+
+  dateFormat:
+    published: "02.01.2006"
+    lastUpdated: "02.01.2006"
+
+  sidebar:
+    compact: false
+    emoji: "🌿"
+    subtitle: Naturalis Balance Blog
+    avatar: ""
+
+  article:
+    headingAnchor: false
+    math: false
+    toc: true
+    readingTime: true
+    list:
+      showTags: true
+    license:
+      enabled: false
+
+  colorScheme:
+    toggle: true
+    default: auto
+
+  comments:
+    enabled: false
+
+  widgets:
+    homepage:
+      - type: search
+      - type: archives
+        params:
+          limit: 5
+      - type: categories
+        params:
+          limit: 10
+      - type: tag-cloud
+        params:
+          limit: 10
+    page:
+      - type: toc
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 1
+    - identifier: about
+      name: Über mich
+      url: /about/
+      weight: 2
+    - identifier: archives
+      name: Archiv
+      url: /archives/
+      weight: 3
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
