@@ -1,7 +1,7 @@
 ---
 title: "Willkommen auf meinem Blog"
 date: 2026-05-29
-draft: false
+draft: true
 description: "Der erste Beitrag auf Naturalis Balance."
 categories:
     - Allgemein
